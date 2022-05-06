@@ -6,7 +6,7 @@ I have been recently working intensively with tensorflow/keras for my master's t
 
 # Table of contents
 1. [Create dataset from numpy](#dataset_numpy)
-2. [Visualize dataset samples](#visualize_samples)
+2. [Visualize dataset samples](#visual_samples)
 3. [Custom Callback for keras](#custom_callbacks)
 
 
@@ -37,9 +37,9 @@ Something that I love doing is to preprocess all the data on my computer and upl
 
 ```
 
-## Quickly create dataset from numpy <a name="dataset_numpy"></a>
+## Visualise samples from the tf.data.Dataset <a name="visual_samples"></a>
 Ready copy paste code to check whether your dataset has been loaded correctly. This one is a must check before building the model.
-Note, <em>your_dataset</em> needs to be <em>tf.data.Dataset</em>. Be aware that you need to index the variable <em>image</em> to the right size/dimension.
+Note that <em>your_dataset</em> needs to be <em>tf.data.Dataset</em>. Be aware that you need to index the variable <em>image</em> to the right size/dimension.
 
 ```python
 image_batch, label_batch = next(iter(your_dataset))
@@ -52,6 +52,7 @@ for i in range(9):
 
     plt.imshow(image)
 ```
+![example](/imgs/sample_visual.png "example")
 
 
 ## Custom Callback for keras - [link documentation](https://www.tensorflow.org/guide/keras/custom_callback) <a name="custom_callbacks"></a>
