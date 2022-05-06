@@ -4,7 +4,13 @@ I have been recently working intensively with tensorflow/keras for my master's t
 - More is to come, sorry if the following is a little bit messy.
 
 
-## Quickly create dataset from numpy data
+# Table of contents
+1. [Create dataset from numpy](#dataset_numpy)
+2. [Visualize dataset samples](#visualize_samples)
+3. [Custom Callback for keras](#custom_callbacks)
+
+
+## Quickly create dataset from numpy <a name="dataset_numpy"></a>
 Something that I love doing is to preprocess all the data on my computer and upload it onto my google drive (this because I use Colab). This avoids excessive loading times when in a hurry, but it may overload RAM and GPU, depending on how big is your dataset. I usually can fit 10GB of samples.
 
 ```python
@@ -31,8 +37,24 @@ Something that I love doing is to preprocess all the data on my computer and upl
 
 ```
 
+## Quickly create dataset from numpy <a name="dataset_numpy"></a>
+Ready copy paste code to check whether your dataset has been loaded correctly. This one is a must check before building the model.
+Note, <em>your_dataset</em> needs to be <em>tf.data.Dataset</em>. Be aware that you need to index the variable <em>image</em> to the right size/dimension.
 
-## Custom Callback for keras - [link documentation](https://www.tensorflow.org/guide/keras/custom_callback)
+```python
+image_batch, label_batch = next(iter(your_dataset))
+
+plt.figure(figsize=(10, 10))
+for i in range(9):
+    ax = plt.subplot(3, 3, i + 1)
+
+    image = image_batch[i].numpy()
+
+    plt.imshow(image)
+```
+
+
+## Custom Callback for keras - [link documentation](https://www.tensorflow.org/guide/keras/custom_callback) <a name="custom_callbacks"></a>
 For instance my model kept being stuck in some sort of local minima. With this callback I saved a lot of time in grid search.
 
 ```python
