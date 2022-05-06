@@ -8,7 +8,9 @@ I have been recently working intensively with tensorflow/keras for my master's t
 Something that I love doing is to preprocess all the data on my computer and upload it onto my google drive (this because I use Colab). This avoids excessive loading times when in a hurry, but it may overload RAM and GPU, depending on how big is your dataset. I usually can fit 10GB of samples.
 
 ```python
-
+    import numpy as np
+    import tensorflow as tf
+    
     BATCH=16
     BUFFER=200
 
@@ -34,6 +36,8 @@ Something that I love doing is to preprocess all the data on my computer and upl
 For instance my model kept being stuck in some sort of local minima. With this callback I saved a lot of time in grid search.
 
 ```python
+from tensorflow import keras
+
 class yourCustomCallback(keras.callbacks.Callback):
 
     def __init__(self):
