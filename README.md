@@ -70,6 +70,6 @@ class yourCustomCallback(keras.callbacks.Callback):
         # this method gets called when the epoch ends
 
 # Implementing the callbacks in the fit function of the model.
-your_model.fit(callbacks=your_callbacks)
+your_model.fit(callbacks=[yourCustomCallback])
 ```
       
