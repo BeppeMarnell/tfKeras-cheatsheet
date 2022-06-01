@@ -68,5 +68,8 @@ class yourCustomCallback(keras.callbacks.Callback):
 
     def on_epoch_end(self, epoch, logs=None):
         # this method gets called when the epoch ends
+
+# Implementing the callbacks in the fit function of the model.
+your_model.fit(callbacks=your_callbacks)
 ```
       
